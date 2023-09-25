@@ -1,0 +1,72 @@
+﻿@* @model SaleViewModel *@
+@* @model dynamic *@
+@model Tuple<List<SaleDetails>, List<SaleItems>>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+@* Method1 *@
+@* Sale Details:
+@foreach (var item in Model.SaleDetailsViewModel)
+{
+    @item.Barcode
+    <br />
+}
+
+Sale Items:
+@foreach (var item in Model.SaleItemsViewModel)
+{
+    @item.ItemName
+    <br />
+} *@
+
+@* Method2 *@
+@* Sale Details:
+@foreach (var item in ViewData["SaleDetailsViewModel"] as IEnumerable<SaleDetails>)
+{
+    @item.Barcode
+    <br />
+}
+
+Sale Items:
+@foreach (var item in ViewData["SaleItemsViewModel"] as IEnumerable<SaleItems>)
+{
+    @item.ItemName
+    <br />
+} *@
+
+@* Method3 *@
+@* Sale Details:
+@foreach (var item in Model.SaleDetails)
+{
+    @item.Barcode
+    <br />
+}
+
+Sale Items:
+@foreach (var item in Model.SaleItems)
+{
+    @item.ItemName
+    <br />
+} *@
+
+@* Method4 *@
+Sale Details:
+@foreach (var item in Model.Item1)
+{
+    @item.Barcode
+    <br />
+}
+
+Sale Items:
+@foreach (var item in Model.Item2)
+{
+    @item.ItemName
+    <br />
+}
